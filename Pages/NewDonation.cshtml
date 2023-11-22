@@ -1,0 +1,112 @@
+﻿@page
+@model Disaster_Alleviation.Pages.NewDonationModel
+@{
+    ViewData["Title"] = "New Donation";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>New Monetary Donation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .form-container {
+            width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-bottom: 10px;
+        }
+
+        input[type="text"],
+        input[type="date"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+            input[type="submit"]:hover {
+                background-color: #0056b3;
+            }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <h1>Monetary Donations</h1>
+    <div class="form-container">
+        <form method="post">
+            <label for="monDate">Date:</label>
+            <input type="date" name="monDate" id="monDate">
+            <label for="monAmount">Amount:</label>
+            <input type="text" name="monAmount" id="monAmount">
+            <label for="monName">Name (Anonymous or Full Name):</label>
+            <input type="text" name="monName" id="monName">
+            <input type="submit" value="Save">
+        </form>
+    </div>
+
+    <div class="text-center">
+        <h1>Donations</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Amount</th>
+                    <th>Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (ViewData["Monetary_Donation"] != null)
+                {
+                    foreach (var row in ViewData["Monetary_Donation"] as List<string[]>)
+                    {
+                        <tr>
+                            <td>@row[0]</td>
+                            <td>@row[1]</td>
+                            <td>@row[2]</td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

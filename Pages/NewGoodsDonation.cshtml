@@ -1,0 +1,137 @@
+﻿@page
+@model Disaster_Alleviation.Pages.NewGoodsDonationModel
+@{
+    ViewData["Title"] = "New Goods Donation";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>New Goods Donation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .form-container {
+            width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-bottom: 10px;
+        }
+
+        input[type="text"],
+        input[type="date"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+            select#category {
+                width: 100%;
+            }
+
+        #customEntry {
+            display: none;
+        }
+
+        input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+            input[type="submit"]:hover {
+                background-color: #0056b3;
+            }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <h1>Donations</h1>
+    <div class="form-container">
+        <form method="post">
+            <label for="goodsDate">Date:</label>
+            <input type="date" name="goodsDate" id="goodsDate">
+            <label for="goodsItems">Number of items:</label>
+            <input type="text" name="goodsItems" id="goodsItems">
+            <label for="category">Categories:</label>
+            <select id="category" name="category">
+                <option value="clothes">Clothes</option>
+                <option value="Non_perishableFoods">Non-perishable Foods</option>
+                <option value="custom">New Category</option>
+            </select>
+            <input type="text" id="customEntry" name="customEntry" placeholder="Enter new category">
+            <label for="description">Description:</label>
+            <textarea name="description" placeholder="Enter description of item"></textarea>
+            <label for="goodsName">Name (Anonymous or Full Name):</label>
+            <input type="text" name="goodsName" id="goodsName">
+            <input type="submit" value="Save Goods">
+        </form>
+    </div>
+
+    <div class="text-center">
+        <h1>Goods Donations</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Number of Items</th>
+                    <th>Category</th>
+                    <th>Description</th>
+                    <th>Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (ViewData["Goods_Donation"] != null)
+                {
+                    foreach (var row0 in ViewData["Goods_Donation"] as List<string[]>)
+                    {
+                        <tr>
+                            <td>@row0[0]</td>
+                            <td>@row0[1]</td>
+                            <td>@row0[2]</td>
+                            <td>@row0[3]</td>
+                            <td>@row0[4]</td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
+
+

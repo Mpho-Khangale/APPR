@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project>
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAG8wZkCyxdUupP8omMhcdDgAAAAACAAAAAAAQZgAAAAEAACAAAADqLc75VrMBqN2wxFwo9lRydUtdE5FEVh+HzgNR0/zfZwAAAAAOgAAAAAIAACAAAADryFF2Z4UEN1NI/afRtYuAq80fW4P5Lgl2gsfWO7Xn6YAAAABWN7laXnthBaGFhuPZmagtflqWo8DuzrOZ52AcfmBfU2ghgx9QDtCv0JVAev71KYcoRqZUpPDXuAVxX0PK7Zxb8Qm/ieretoB+yvIZlyxfWpHLKjadoyOHemSxFr9CX7Yk9XuZLrmj/xmkNzbkEvh+wdLff4AOxmQZgINNgdIaVUAAAAC8GZw0dVofS+A16bZImdcjqnsjDmGpxQSNxewNPCpIaS9N50c0Uq0gtJ/T+T99Ow4kKyUD3ex21vRhuJWyubLD</EncryptedPassword>
+    <History>True|2023-09-22T16:11:45.9158715Z;</History>
+    <LastFailureDetails />
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="DefaultConnection">
+      <Value>Data Source=tcp:djpromo01.database.windows.net,1433%3bInitial Catalog=DJPromoDatabase%3bUser Id=djadmin%40djpromo01%3bPassword=Stayship#34</Value>
+    </DestinationConnectionStrings>
+    <DestinationConnectionStrings Include="DefaultConnection1">
+      <Value>Data Source=tcp:djpromo01.database.windows.net,1433%3bInitial Catalog=DJPromoDatabase%3bUser Id=djadmin%40djpromo01%3bPassword=Stayship#34</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+  <ItemGroup>
+    <EFMigrations Include="Disaster_Alleviation.Data.ApplicationDbContext">
+      <Value>Data Source=tcp:djpromo01.database.windows.net,1433%3bInitial Catalog=DJPromoDatabase%3bUser Id=djadmin%40djpromo01%3bPassword=Stayship#34</Value>
+    </EFMigrations>
+  </ItemGroup>
+</Project>

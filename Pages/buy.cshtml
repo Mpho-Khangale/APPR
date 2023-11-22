@@ -1,0 +1,140 @@
+﻿@page
+@model Disaster_Alleviation.Pages.Buy_GoodsModel
+@{
+    ViewData["Title"] = "Buy Goods";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Allocate Goods/Money</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .form-container {
+            width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-bottom: 10px;
+        }
+
+        select,
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+            button:hover {
+                background-color: #0056b3;
+            }
+
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        tbody select {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <h1>Allocate Goods/Money</h1>
+    <div class="form-container">
+        <form method="post">
+            <div class="table">
+                <thead>
+                    <tr>
+                        <th>Disasters</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (ViewData["Disasters"] != null)
+                    {
+                        <select id="disasters" name="disasters">
+                            @foreach (var row1 in ViewData["Disasters"] as List<string[]>)
+                            {
+                                @foreach (var item in row1)
+                                {
+                                    <option value="@item">@item</option>
+                                }
+                            }
+                        </select>
+                    }
+                </tbody>
+            </div>
+            <br />
+            <h2>Allocate Amount</h2>
+            <div class="table" id="goods_dropdown">
+                <thead>
+                    <th>Goods</th>
+                </thead>
+                <tbody>
+                    <select id="goods" name="goods">
+                        @if (ViewData["Goods_Donation"] != null)
+                        {
+                            @foreach (var row0 in ViewData["Goods_Donation"] as List<string[]>)
+                            {
+                                @foreach (var item in row0)
+                                {
+                                    <option value="@item">@item</option>
+                                }
+                            }
+                        }
+                    </select>
+                </tbody>
+            </div>
+            <br />
+            <div>
+                <label for="allocatedAmount">Allocated Amount:</label>
+                <input type="text" id="allocatedAmount" name="allocatedAmount">
+            </div>
+            <button type="submit">Allocate</button>
+        </form>
+    </div>
+    <div>
+        <h2>Available Amount: @Model.AvailableFunds</h2>
+        <h2>Remaining Amount: @Model.RemainingAmount</h2>
+    </div>
+</body>
+</html>
+
